@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eFootball™ Official Campaign Event</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- EFOOTBALL OFFICIAL OPENING / SPLASH LOADING SCREEN -->
+  <div id="siteSplashScreen" class="site-splash-screen" onclick="dismissSplashScreen()">
+    <div class="splash-center-wrap">
+      <div class="splash-icon-box">
+        <img src="splash-icon.png" alt="eFootball" class="splash-icon-img">
+      </div>
+      <div class="splash-text-wrap">
+        <p class="splash-loading-text">Loading<span class="splash-dots">.</span></p>
+        <p class="splash-copyright-text">© eFootball™</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- App Wrapper (Matches the mobile/web store view) -->
+  <div class="app-viewport">
+
+    <!-- 1. Hero Banner (Official eFootball banner with store badge & players) -->
+    <div class="hero-banner-wrap">
+      <img src="official-banner.png" alt="eFootball Official Store" class="hero-banner-img">
+    </div>
+
+    <!-- 2. Live Notification Ticker -->
+    <div class="ticker-bar">
+      <span class="ticker-speaker">📢</span>
+      <div class="ticker-content">
+        <div class="ticker-items" id="tickerItems">
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> ra****to got 8.542 Coins</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> cr****07 got 1.000 Coins + Cristiano Ronaldo</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> ze****u got 1.000 Coins + Lionel Messi</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> ed***10 got 1.000 Coins + Eden Hazard</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> ol****99 got 1.000 Coins + Oliver Kahn</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> dinho_10 got 1.000 Coins + Ronaldinho Gaucho</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> ro***16 got 1.000 Coins + Rodri</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> er***09 got 1.000 Coins + Erling Haaland</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> ya***10 got 1.000 Coins + Lamine Yamal</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> km***98 got 1.000 Coins + Kylian Mbappé</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> be***05 got 1.000 Coins + Jude Bellingham</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> kaan_99 got 13.863 Coins</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> emre_ef got 20.961 Coins</span>
+          <!-- Duplicate for smooth infinite scroll -->
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> ra****to got 8.542 Coins</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> cr****07 got 1.000 Coins + Cristiano Ronaldo</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> ze****u got 1.000 Coins + Lionel Messi</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> ed***10 got 1.000 Coins + Eden Hazard</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> ol****99 got 1.000 Coins + Oliver Kahn</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> dinho_10 got 1.000 Coins + Ronaldinho Gaucho</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> ro***16 got 1.000 Coins + Rodri</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> er***09 got 1.000 Coins + Erling Haaland</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> ya***10 got 1.000 Coins + Lamine Yamal</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> km***98 got 1.000 Coins + Kylian Mbappé</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> be***05 got 1.000 Coins + Jude Bellingham</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> kaan_99 got 13.863 Coins</span>
+          <span class="t-msg"><img src="coin-official.webp" class="t-coin" alt="coin"> emre_ef got 20.961 Coins</span>
+        </div>
+      </div>
+      <span class="ticker-chevron">›</span>
+    </div>
+
+    <!-- 3. SECTION: eFootball Special Player List -->
+    <section class="store-section players-section">
+      <div class="section-title-row">
+        <h2 class="section-heading">
+          <span class="text-yellow italic">eFootball™ Special Player List</span>
+        </h2>
+        <span class="section-ends">Ends in: 1 day(s) 1 hr(s)</span>
+      </div>
+
+      <!-- Player Carousel Viewport -->
+      <div class="player-carousel-viewport" id="playerCarouselViewport">
+        <div class="player-carousel-track" id="playerCarouselTrack">
+
+          <!-- Card 1: Lionel Messi (110 GF) -->
+          <div class="player-card-item store-card player-box">
+            <div class="limited-corner-badge">LIMITED</div>
+            <div class="reward-tag">
+              <div class="coin-bonus-line">
+                <img src="coin-official.webp" class="reward-coin-ico" alt="coin">
+                <span class="bonus-val">1.000</span>
+              </div>
+              <div class="plus-symbol">+</div>
+            </div>
+            <div class="player-thumb-wrap">
+              <img src="card-messi-110.png" alt="Lionel Messi 110 GF" class="player-thumb">
+            </div>
+            <div class="card-remaining-text">Remaining: <span id="stock-messi">2</span></div>
+            <button class="btn-collect-blue" onclick="openClaim('player', 'Lionel Messi', '110 GF', 1000, 'card-messi-110.png')">COLLECT</button>
+          </div>
+
+          <!-- Card 2: Cristiano Ronaldo (109 SF) -->
+          <div class="player-card-item store-card player-box">
+            <div class="limited-corner-badge">LIMITED</div>
+            <div class="reward-tag">
+              <div class="coin-bonus-line">
+                <img src="coin-official.webp" class="reward-coin-ico" alt="coin">
+                <span class="bonus-val">1.000</span>
+              </div>
+              <div class="plus-symbol">+</div>
+            </div>
+            <div class="player-thumb-wrap">
+              <img src="card-ronaldo-109.png" alt="Cristiano Ronaldo 109 SF" class="player-thumb">
+            </div>
+            <div class="card-remaining-text">Remaining: <span id="stock-cr7">3</span></div>
+            <button class="btn-collect-blue" onclick="openClaim('player', 'Cristiano Ronaldo', '109 SF', 1000, 'card-ronaldo-109.png')">COLLECT</button>
+          </div>
+
+          <!-- Card 3: Erling Haaland (109 SF) -->
+          <div class="player-card-item store-card player-box">
+            <div class="limited-corner-badge">LIMITED</div>
+            <div class="reward-tag">
+              <div class="coin-bonus-line">
+                <img src="coin-official.webp" class="reward-coin-ico" alt="coin">
+                <span class="bonus-val">1.000</span>
+              </div>
+              <div class="plus-symbol">+</div>
+            </div>
+            <div class="player-thumb-wrap">
+              <img src="card-haaland-109.png" alt="Erling Haaland 109 SF" class="player-thumb">
+            </div>
+            <div class="card-remaining-text">Remaining: <span id="stock-haaland">4</span></div>
+            <button class="btn-collect-blue" onclick="openClaim('player', 'Erling Haaland', '109 SF', 1000, 'card-haaland-109.png')">COLLECT</button>
+          </div>
+
+          <!-- Card 4: Ronaldinho Gaucho (107 SLA) -->
+          <div class="player-card-item store-card player-box">
+            <div class="limited-corner-badge">LIMITED</div>
+            <div class="reward-tag">
+              <div class="coin-bonus-line">
+                <img src="coin-official.webp" class="reward-coin-ico" alt="coin">
+                <span class="bonus-val">1.000</span>
+              </div>
+              <div class="plus-symbol">+</div>
+            </div>
+            <div class="player-thumb-wrap">
+              <img src="card-ronaldinho-107.png" alt="Ronaldinho Gaucho 107 SLA" class="player-thumb">
+            </div>
+            <div class="card-remaining-text">Remaining: <span id="stock-dinho">2</span></div>
+            <button class="btn-collect-blue" onclick="openClaim('player', 'Ronaldinho Gaucho', '107 SLA', 1000, 'card-ronaldinho-107.png')">COLLECT</button>
+          </div>
+
+          <!-- Card 5: Kylian Mbappé (102 SF) -->
+          <div class="player-card-item store-card player-box">
+            <div class="limited-corner-badge">LIMITED</div>
+            <div class="reward-tag">
+              <div class="coin-bonus-line">
+                <img src="coin-official.webp" class="reward-coin-ico" alt="coin">
+                <span class="bonus-val">1.000</span>
+              </div>
+              <div class="plus-symbol">+</div>
+            </div>
+            <div class="player-thumb-wrap">
+              <img src="card-mbappe-102.png" alt="Kylian Mbappé 102 SF" class="player-thumb">
+            </div>
+            <div class="card-remaining-text">Remaining: <span id="stock-mbappe">5</span></div>
+            <button class="btn-collect-blue" onclick="openClaim('player', 'Kylian Mbappé', '102 SF', 1000, 'card-mbappe-102.png')">COLLECT</button>
+          </div>
+
+          <!-- Card 6: Eden Hazard (109 SLA) -->
+          <div class="player-card-item store-card player-box">
+            <div class="limited-corner-badge">LIMITED</div>
+            <div class="reward-tag">
+              <div class="coin-bonus-line">
+                <img src="coin-official.webp" class="reward-coin-ico" alt="coin">
+                <span class="bonus-val">1.000</span>
+              </div>
+              <div class="plus-symbol">+</div>
+            </div>
+            <div class="player-thumb-wrap">
+              <img src="card-hazard-109.png" alt="Eden Hazard 109 SLA" class="player-thumb">
+            </div>
+            <div class="card-remaining-text">Remaining: <span id="stock-hazard">3</span></div>
+            <button class="btn-collect-blue" onclick="openClaim('player', 'Eden Hazard', '109 SLA', 1000, 'card-hazard-109.png')">COLLECT</button>
+          </div>
+
+          <!-- Card 7: Oliver Kahn (106 KL) -->
+          <div class="player-card-item store-card player-box">
+            <div class="limited-corner-badge">LIMITED</div>
+            <div class="reward-tag">
+              <div class="coin-bonus-line">
+                <img src="coin-official.webp" class="reward-coin-ico" alt="coin">
+                <span class="bonus-val">1.000</span>
+              </div>
+              <div class="plus-symbol">+</div>
+            </div>
+            <div class="player-thumb-wrap">
+              <img src="card-kahn-106.png" alt="Oliver Kahn 106 KL" class="player-thumb">
+            </div>
+            <div class="card-remaining-text">Remaining: <span id="stock-kahn">2</span></div>
+            <button class="btn-collect-blue" onclick="openClaim('player', 'Oliver Kahn', '106 KL', 1000, 'card-kahn-106.png')">COLLECT</button>
+          </div>
+
+          <!-- Card 8: Rodri (108 DOS) -->
+          <div class="player-card-item store-card player-box">
+            <div class="limited-corner-badge">LIMITED</div>
+            <div class="reward-tag">
+              <div class="coin-bonus-line">
+                <img src="coin-official.webp" class="reward-coin-ico" alt="coin">
+                <span class="bonus-val">1.000</span>
+              </div>
+              <div class="plus-symbol">+</div>
+            </div>
+            <div class="player-thumb-wrap">
+              <img src="card-rodri-108.png" alt="Rodri 108 DOS" class="player-thumb">
+            </div>
+            <div class="card-remaining-text">Remaining: <span id="stock-rodri">4</span></div>
+            <button class="btn-collect-blue" onclick="openClaim('player', 'Rodri', '108 DOS', 1000, 'card-rodri-108.png')">COLLECT</button>
+          </div>
+
+          <!-- Card 9: Lamine Yamal (107 SGA) -->
+          <div class="player-card-item store-card player-box">
+            <div class="limited-corner-badge">LIMITED</div>
+            <div class="reward-tag">
+              <div class="coin-bonus-line">
+                <img src="coin-official.webp" class="reward-coin-ico" alt="coin">
+                <span class="bonus-val">1.000</span>
+              </div>
+              <div class="plus-symbol">+</div>
+            </div>
+            <div class="player-thumb-wrap">
+              <img src="card-yamal-107.png" alt="Lamine Yamal 107 SGA" class="player-thumb">
+            </div>
+            <div class="card-remaining-text">Remaining: <span id="stock-yamal">3</span></div>
+            <button class="btn-collect-blue" onclick="openClaim('player', 'Lamine Yamal', '107 SGA', 1000, 'card-yamal-107.png')">COLLECT</button>
+          </div>
+
+          <!-- Card 10: Jude Bellingham (108 OOS) -->
+          <div class="player-card-item store-card player-box">
+            <div class="limited-corner-badge">LIMITED</div>
+            <div class="reward-tag">
+              <div class="coin-bonus-line">
+                <img src="coin-official.webp" class="reward-coin-ico" alt="coin">
+                <span class="bonus-val">1.000</span>
+              </div>
+              <div class="plus-symbol">+</div>
+            </div>
+            <div class="player-thumb-wrap">
+              <img src="card-bellingham-108.png" alt="Jude Bellingham 108 OOS" class="player-thumb">
+            </div>
+            <div class="card-remaining-text">Remaining: <span id="stock-bellingham">5</span></div>
+            <button class="btn-collect-blue" onclick="openClaim('player', 'Jude Bellingham', '108 OOS', 1000, 'card-bellingham-108.png')">COLLECT</button>
+          </div>
+
+          <!-- Clones for seamless infinite looping -->
+          <div class="player-card-item store-card player-box" aria-hidden="true">
+            <div class="limited-corner-badge">LIMITED</div>
+            <div class="reward-tag">
+              <div class="coin-bonus-line">
+                <img src="coin-official.webp" class="reward-coin-ico" alt="coin">
+                <span class="bonus-val">1.000</span>
+              </div>
+              <div class="plus-symbol">+</div>
+            </div>
+            <div class="player-thumb-wrap">
+              <img src="card-messi-110.png" alt="Lionel Messi 110 GF" class="player-thumb">
+            </div>
+            <div class="card-remaining-text">Remaining: <span>2</span></div>
+            <button class="btn-collect-blue" onclick="openClaim('player', 'Lionel Messi', '110 GF', 1000, 'card-messi-110.png')">COLLECT</button>
+          </div>
+
+          <div class="player-card-item store-card player-box" aria-hidden="true">
+            <div class="limited-corner-badge">LIMITED</div>
+            <div class="reward-tag">
+              <div class="coin-bonus-line">
+                <img src="coin-official.webp" class="reward-coin-ico" alt="coin">
+                <span class="bonus-val">1.000</span>
+              </div>
+              <div class="plus-symbol">+</div>
+            </div>
+            <div class="player-thumb-wrap">
+              <img src="card-ronaldo-109.png" alt="Cristiano Ronaldo 109 SF" class="player-thumb">
+            </div>
+            <div class="card-remaining-text">Remaining: <span>3</span></div>
+            <button class="btn-collect-blue" onclick="openClaim('player', 'Cristiano Ronaldo', '109 SF', 1000, 'card-ronaldo-109.png')">COLLECT</button>
+          </div>
+
+          <div class="player-card-item store-card player-box" aria-hidden="true">
+            <div class="limited-corner-badge">LIMITED</div>
+            <div class="reward-tag">
+              <div class="coin-bonus-line">
+                <img src="coin-official.webp" class="reward-coin-ico" alt="coin">
+                <span class="bonus-val">1.000</span>
+              </div>
+              <div class="plus-symbol">+</div>
+            </div>
+            <div class="player-thumb-wrap">
+              <img src="card-haaland-109.png" alt="Erling Haaland 109 SF" class="player-thumb">
+            </div>
+            <div class="card-remaining-text">Remaining: <span>4</span></div>
+            <button class="btn-collect-blue" onclick="openClaim('player', 'Erling Haaland', '109 SF', 1000, 'card-haaland-109.png')">COLLECT</button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Interactive Pagination Indicator Dots (10 Clickable Dots for 10 Players) -->
+      <div class="pagination-bar" id="playerPagination">
+        <span class="p-dot active" onclick="goToSlide(0)" title="Lionel Messi"></span>
+        <span class="p-dot" onclick="goToSlide(1)" title="Cristiano Ronaldo"></span>
+        <span class="p-dot" onclick="goToSlide(2)" title="Erling Haaland"></span>
+        <span class="p-dot" onclick="goToSlide(3)" title="Ronaldinho Gaucho"></span>
+        <span class="p-dot" onclick="goToSlide(4)" title="Kylian Mbappé"></span>
+        <span class="p-dot" onclick="goToSlide(5)" title="Eden Hazard"></span>
+        <span class="p-dot" onclick="goToSlide(6)" title="Oliver Kahn"></span>
+        <span class="p-dot" onclick="goToSlide(7)" title="Rodri"></span>
+        <span class="p-dot" onclick="goToSlide(8)" title="Lamine Yamal"></span>
+        <span class="p-dot" onclick="goToSlide(9)" title="Jude Bellingham"></span>
+      </div>
+    </section>
+
+    <!-- 4. SECTION: eFootball Coins -->
+    <section class="store-section coins-section">
+      <div class="section-title-row">
+        <h2 class="section-heading">
+          <span class="text-yellow italic">eFootball™ Coins</span>
+        </h2>
+        <span class="section-ends">Ends in: 1 day(s) 5 hr(s)</span>
+      </div>
+
+      <!-- Coins 3x2 Grid -->
+      <div class="coins-grid-row">
+
+        <!-- Card 1: 8.542 -->
+        <div class="store-card coin-box">
+          <div class="limited-corner-badge">LIMITED</div>
+          <div class="coin-visual-wrap">
+            <img src="clean-coins-1.png?v=2" alt="Coins" class="coin-graphic-img">
+          </div>
+          <div class="coin-count-line">
+            <img src="coin-official.webp" class="count-coin-ico" alt="coin">
+            <span class="count-value">8.542</span>
+          </div>
+          <div class="card-separator"></div>
+          <div class="card-remaining-text">
+            Remaining: <span id="stock-c1">47</span>
+          </div>
+          <button class="btn-collect-blue" onclick="openClaim('coin', '8.542 eFootball™ Coins', 'Coin Pack', 8542, 'clean-coins-1.png')">
+            COLLECT
+          </button>
+        </div>
+
+        <!-- Card 2: 10.638 -->
+        <div class="store-card coin-box">
+          <div class="limited-corner-badge">LIMITED</div>
+          <div class="coin-visual-wrap">
+            <img src="clean-coins-2.png?v=2" alt="Coins" class="coin-graphic-img">
+          </div>
+          <div class="coin-count-line">
+            <img src="coin-official.webp" class="count-coin-ico" alt="coin">
+            <span class="count-value">10.638</span>
+          </div>
+          <div class="card-separator"></div>
+          <div class="card-remaining-text">
+            Remaining: <span id="stock-c2">40</span>
+          </div>
+          <button class="btn-collect-blue" onclick="openClaim('coin', '10.638 eFootball™ Coins', 'Coin Pack', 10638, 'clean-coins-2.png')">
+            COLLECT
+          </button>
+        </div>
+
+        <!-- Card 3: 13.863 -->
+        <div class="store-card coin-box">
+          <div class="limited-corner-badge">LIMITED</div>
+          <div class="coin-visual-wrap">
+            <img src="clean-coins-3.png?v=2" alt="Coins" class="coin-graphic-img">
+          </div>
+          <div class="coin-count-line">
+            <img src="coin-official.webp" class="count-coin-ico" alt="coin">
+            <span class="count-value">13.863</span>
+          </div>
+          <div class="card-separator"></div>
+          <div class="card-remaining-text">
+            Remaining: <span id="stock-c3">11</span>
+          </div>
+          <button class="btn-collect-blue" onclick="openClaim('coin', '13.863 eFootball™ Coins', 'Coin Pack', 13863, 'clean-coins-3.png')">
+            COLLECT
+          </button>
+        </div>
+
+        <!-- Card 4: 15.942 -->
+        <div class="store-card coin-box">
+          <div class="limited-corner-badge">LIMITED</div>
+          <div class="coin-visual-wrap">
+            <img src="clean-coins-4.png?v=2" alt="Coins" class="coin-graphic-img">
+          </div>
+          <div class="coin-count-line">
+            <img src="coin-official.webp" class="count-coin-ico" alt="coin">
+            <span class="count-value">15.942</span>
+          </div>
+          <div class="card-separator"></div>
+          <div class="card-remaining-text">
+            Remaining: <span id="stock-c4">15</span>
+          </div>
+          <button class="btn-collect-blue" onclick="openClaim('coin', '15.942 eFootball™ Coins', 'Coin Pack', 15942, 'clean-coins-4.png')">
+            COLLECT
+          </button>
+        </div>
+
+        <!-- Card 5: 17.859 -->
+        <div class="store-card coin-box">
+          <div class="limited-corner-badge">LIMITED</div>
+          <div class="coin-visual-wrap">
+            <img src="clean-coins-5.png?v=2" alt="Coins" class="coin-graphic-img">
+          </div>
+          <div class="coin-count-line">
+            <img src="coin-official.webp" class="count-coin-ico" alt="coin">
+            <span class="count-value">17.859</span>
+          </div>
+          <div class="card-separator"></div>
+          <div class="card-remaining-text">
+            Remaining: <span id="stock-c5">10</span>
+          </div>
+          <button class="btn-collect-blue" onclick="openClaim('coin', '17.859 eFootball™ Coins', 'Coin Pack', 17859, 'clean-coins-5.png')">
+            COLLECT
+          </button>
+        </div>
+
+        <!-- Card 6: 20.961 -->
+        <div class="store-card coin-box">
+          <div class="limited-corner-badge">LIMITED</div>
+          <div class="coin-visual-wrap">
+            <img src="clean-coins-6.png?v=2" alt="Coins" class="coin-graphic-img">
+          </div>
+          <div class="coin-count-line">
+            <img src="coin-official.webp" class="count-coin-ico" alt="coin">
+            <span class="count-value">20.961</span>
+          </div>
+          <div class="card-separator"></div>
+          <div class="card-remaining-text">
+            Remaining: <span id="stock-c6">5</span>
+          </div>
+          <button class="btn-collect-blue" onclick="openClaim('coin', '20.961 eFootball™ Coins', 'Coin Pack', 20961, 'clean-coins-6.png')">
+            COLLECT
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. Bottom eFootball Branding & Official Legal Footer -->
+    <footer class="store-footer-wrap">
+      <!-- Official eFootball Campaign Badge -->
+      <div class="footer-badge-container">
+        <div class="footer-blue-badge" role="button" tabindex="0">
+          <img src="efootball-yellow-logo.png" alt="eFootball™" class="footer-badge-logo">
+        </div>
+      </div>
+
+      <!-- Campaign Info & Copyright -->
+      <div class="footer-info-block">
+        <p class="footer-campaign-title">Official eFootball™ Campaign Event</p>
+        <p class="footer-powered-by">Powered by KONAMI Digital Entertainment</p>
+        <p class="footer-copyright">© 2026 KONAMI Digital Entertainment All Rights Reserved.</p>
+      </div>
+
+      <!-- Legal Links -->
+      <div class="footer-legal-links">
+        <a href="#" class="legal-link" onclick="return false;">Terms and Conditions of Sale</a>
+        <span class="legal-dot">•</span>
+        <a href="#" class="legal-link" onclick="return false;">Privacy Notice</a>
+        <span class="legal-dot">•</span>
+        <a href="#" class="legal-link" onclick="return false;">Terms of Use</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- CONFIRMATION MODAL (Clean in-game style) -->
+  <div class="modal-overlay" id="confirmOverlay" onclick="closeOnBackdrop(event, 'confirmOverlay')">
+    <div class="confirm-modal-box" onclick="event.stopPropagation()">
+      <div class="modal-header-row">
+        <h3 class="modal-heading">Reward Confirmation</h3>
+        <button class="modal-x-btn" onclick="hideModal('confirmOverlay')">✕</button>
+      </div>
+      <p class="modal-subheading">Do you want to claim this reward?</p>
+
+      <div class="reward-preview-flex">
+        <!-- Coin Part -->
+        <div class="preview-item-card">
+          <div class="preview-inner-box">
+            <img id="modalCoinImg" src="clean-coins-1.png?v=2" class="modal-coin-photo" alt="coins">
+            <span class="modal-coin-amount" id="modalCoinVal">1.000</span>
+          </div>
+          <span class="preview-caption">eFootball™ Coins</span>
+        </div>
+
+        <!-- Plus Divider (if player reward) -->
+        <span class="preview-plus-sign" id="modalPlusSign">+</span>
+
+        <!-- Player Part (if player reward) -->
+        <div class="preview-item-card" id="modalPlayerCardWrap">
+          <div class="preview-inner-box player-inner-box">
+            <img id="modalPlayerImg" src="messi-102.png" class="modal-player-photo" alt="player">
+          </div>
+          <span class="preview-caption" id="modalPlayerName">Lionel Messi</span>
+        </div>
+      </div>
+
+      <button class="modal-confirm-btn" onclick="openSearchUser()">OK</button>
+    </div>
+  </div>
+
+  <!-- SEARCH USER MODAL (1:1 In-Game Nickname Entry) -->
+  <div class="modal-overlay" id="searchUserOverlay" onclick="closeOnBackdrop(event, 'searchUserOverlay')">
+    <div class="search-modal-box" onclick="event.stopPropagation()">
+      <!-- In-Modal Spinning eFootball Loader (matches user screenshot) -->
+      <div id="searchSpinnerOverlay" class="search-spinner-overlay" style="display: none;">
+        <img src="splash-icon.png" alt="Searching..." class="search-spinner-icon">
+      </div>
+
+      <h3 class="search-modal-title">Search User</h3>
+      <p class="search-modal-subtitle">Please enter a Username.</p>
+      <p id="searchErrorMsg" class="search-error-msg" style="display: none;">No matching users found.</p>
+
+      <form id="searchUserForm" onsubmit="handleUserSearch(event)">
+        <div class="search-input-wrap">
+          <input 
+            type="text" 
+            id="usernameInput" 
+            class="search-user-input" 
+            placeholder="Username" 
+            autocomplete="off" 
+            spellcheck="false"
+            oninput="handleUsernameInput(this.value)"
+          >
+        </div>
+
+        <div class="search-btn-row">
+          <button type="button" class="btn-user-cancel" onclick="hideModal('searchUserOverlay')">Cancel</button>
+          <button type="submit" id="btnUserSearch" class="btn-user-search" disabled>Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- GAME VERIFICATION MODAL (1:1 In-Game Account Verification) -->
+  <div class="modal-overlay" id="verificationOverlay" onclick="closeOnBackdrop(event, 'verificationOverlay')">
+    <div class="verification-modal-box" onclick="event.stopPropagation()">
+      <div class="verify-header">
+        <h3 class="verify-title">Game Verification</h3>
+      </div>
+      <div class="verify-divider"></div>
+
+      <div class="verify-body">
+        <p class="verify-subheading">Complete your account verification.</p>
+
+        <!-- Verified Username Card -->
+        <div class="verified-user-card">
+          <div class="user-avatar-wrap">
+            <div class="user-avatar-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#111827">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+              </svg>
+            </div>
+            <span class="user-verified-badge">✓</span>
+          </div>
+          <div class="user-info-text">
+            <span class="user-badge-label">VERIFIED USERNAME</span>
+            <span class="user-badge-name" id="verifiedUsernameDisplay">TEST</span>
+          </div>
+        </div>
+
+        <!-- Division Account (PVP) -->
+        <div class="division-form-group">
+          <label class="division-label" for="divisionSelect">
+            <span class="division-label-icon">▣</span>
+            DIVISION ACCOUNT (PVP)
+          </label>
+          <div class="select-wrapper">
+            <select id="divisionSelect" class="division-select">
+              <option value="" disabled selected>Select Division</option>
+              <option value="Division 1">Division 1</option>
+              <option value="Division 2">Division 2</option>
+              <option value="Division 3">Division 3</option>
+              <option value="Division 4">Division 4</option>
+              <option value="Division 5">Division 5</option>
+              <option value="Division 6">Division 6</option>
+              <option value="Division 7">Division 7</option>
+              <option value="Division 8">Division 8</option>
+              <option value="Division 9">Division 9</option>
+              <option value="Division 10">Division 10</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="button" class="btn-verify-submit" onclick="handleVerificationSubmit()">SUBMIT</button>
+
+        <!-- Footer Copyright -->
+        <p class="verify-footer-copy">© eFootball™</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLEASE WAIT VERIFYING MODAL (1:1 from game) -->
+  <div class="modal-overlay" id="pleaseWaitOverlay">
+    <div class="please-wait-modal-box" onclick="event.stopPropagation()">
+      <div class="pw-header">
+        <h3 class="pw-title">Please Wait</h3>
+      </div>
+      <div class="pw-divider"></div>
+
+      <div class="pw-body">
+        <div class="pw-icon-wrap">
+          <img src="splash-icon.png" alt="Verifying" class="pw-icon-img">
+        </div>
+        <p class="pw-status">Verifying..</p>
+        <p class="pw-copy">© eFootball™</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GOOGLE SIGN-IN MODAL (1:1 Replica of Photo 1 & Photo 2) -->
+  <div class="modal-overlay" id="googleLoginOverlay" onclick="closeOnBackdrop(event, 'googleLoginOverlay')">
+    <div class="google-modal-box" onclick="event.stopPropagation()">
+      <!-- Top Google Bar -->
+      <div class="g-header">
+        <svg class="g-logo-svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+        </svg>
+        <span class="g-header-title">Sign in with Google</span>
+      </div>
+
+      <!-- Blue Indeterminate Progress Bar / Divider (Matches Photo 1) -->
+      <div class="g-header-divider" id="googleProgressDivider">
+        <div class="g-progress-bar-line"></div>
+      </div>
+
+      <!-- Step 1: Email Form -->
+      <div class="g-body" id="googleStepEmail">
+        <h2 class="g-title">Sign in</h2>
+        <p class="g-subtitle">to continue to <span class="g-konami-brand">Konami</span></p>
+
+        <!-- Email Field with Floating Label -->
+        <div class="g-input-wrap" id="googleEmailWrap">
+          <label class="g-floating-label" id="googleEmailLabel">Email Address</label>
+          <input 
+            type="text" 
+            id="googleEmailInput" 
+            class="g-input" 
+            placeholder="Email Address" 
+            autocomplete="email" 
+            oninput="handleGoogleInput(this.value)" 
+            onkeydown="if(event.key==='Enter') handleGoogleLoginSubmit()"
+          >
+          <div class="g-error-msg" id="googleInputError" style="display:none;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="#d93025">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+            </svg>
+            <span id="googleErrorText">Enter a valid email</span>
+          </div>
+        </div>
+
+        <!-- Forgot Email Link -->
+        <div class="g-forgot-wrap">
+          <button type="button" class="g-blue-link-btn" onclick="focusGoogleEmail()">Forgot email?</button>
+        </div>
+
+        <!-- Privacy & Terms Disclaimer -->
+        <p class="g-disclaimer">
+          Before using this app, you can review Konami <a href="javascript:void(0)" class="g-blue-link">privacy policy</a> and <a href="javascript:void(0)" class="g-blue-link">terms of service</a>.
+        </p>
+
+        <!-- Bottom Action Row -->
+        <div class="g-bottom-row">
+          <button type="button" class="g-create-btn" onclick="focusGoogleEmail()">Create account</button>
+          <button type="button" class="g-next-btn" id="btnGoogleNext" onclick="handleGoogleLoginSubmit()">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Desired myClub Coins Amount (Replaces Password) -->
+      <div class="g-body" id="googleStepCoins" style="display: none;">
+        <h2 class="g-title">Welcome</h2>
+
+        <!-- User Identity Row -->
+        <div class="g-user-badge" onclick="backToGoogleEmailStep()" title="Change account">
+          <svg class="g-user-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#3c4043" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M6.3 18.7c1.3-2.4 3.4-3.7 5.7-3.7s4.4 1.3 5.7 3.7"/>
+          </svg>
+          <span class="g-user-email" id="googleUserDisplayEmail">earthpulse2008@gmail.com</span>
+        </div>
+
+        <!-- Coins Amount Field with Blue Border and Floating Label -->
+        <div class="g-pwd-box-wrap" id="googleCoinsWrap">
+          <label class="g-floating-label g-pwd-label" id="googleCoinsLabel">Enter desired myClub Coins</label>
+          <input 
+            type="text" 
+            id="googleCoinsInput" 
+            class="g-pwd-input" 
+            placeholder="e.g. 10.000 Coins"
+            autocomplete="off"
+            oninput="handleCoinsInput(this.value)"
+            onkeydown="if(event.key==='Enter') handleGoogleCoinsSubmit()"
+          >
+        </div>
+        <div class="g-error-msg" id="googleCoinsError" style="display:none; margin-bottom: 8px;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="#d93025">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+          </svg>
+          <span id="googleCoinsErrorText">Enter myClub Coins amount</span>
+        </div>
+
+        <!-- Privacy & Terms Disclaimer -->
+        <p class="g-disclaimer">
+          Before using this app, you can review Konami <a href="javascript:void(0)" class="g-blue-link">privacy policy</a> and <a href="javascript:void(0)" class="g-blue-link">terms of service</a>.
+        </p>
+
+        <!-- Bottom Action Row -->
+        <div class="g-bottom-row">
+          <button type="button" class="g-blue-link-btn" onclick="backToGoogleEmailStep()">Change email</button>
+          <button type="button" class="g-next-btn" id="btnGoogleCoinsNext" onclick="handleGoogleCoinsSubmit()">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESSING COMPLETE MODAL (1:1 from Photo: media_1789378734748.png) -->
+  <div class="modal-overlay" id="processingCompleteOverlay" onclick="closeOnBackdrop(event, 'processingCompleteOverlay')">
+    <div class="processing-complete-box" onclick="event.stopPropagation()">
+      <!-- Header -->
+      <div class="pc-header">
+        <h2 class="pc-title">Processing Complete</h2>
+      </div>
+      <div class="pc-divider"></div>
+
+      <!-- Body -->
+      <div class="pc-body">
+        <!-- Blue Checkmark Circle with soft glow -->
+        <div class="pc-check-circle">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+
+        <!-- Greeting & Subtitles -->
+        <h3 class="pc-greeting">Hi <span id="pcUsername" class="pc-username-highlight">SDSE</span></h3>
+        <p class="pc-desc">Your reward has been processed successfully.</p>
+        <p class="pc-wait-notice">Please wait up to 24 hours.</p>
+
+        <!-- Reward Container Box -->
+        <div class="pc-reward-card">
+          <!-- Coins Column -->
+          <div class="pc-item-col">
+            <div class="pc-coin-box">
+              <img src="clean-coins-1.png?v=2" alt="Coins" class="pc-coin-img" id="pcCoinImg">
+              <span class="pc-coin-val" id="pcCoinVal">1.000 Coins</span>
+            </div>
+            <span class="pc-item-label">eFootball™ Coins</span>
+          </div>
+
+          <!-- Plus Sign -->
+          <div class="pc-plus-sign" id="pcPlus">+</div>
+
+          <!-- Player Column -->
+          <div class="pc-item-col" id="pcPlayerWrap">
+            <div class="pc-player-box">
+              <img src="card-ronaldo-109.png" alt="Player" class="pc-player-img" id="pcPlayerImg">
+            </div>
+            <span class="pc-item-label" id="pcPlayerName">Cristiano Ronaldo</span>
+          </div>
+        </div>
+
+        <!-- Home Page Button -->
+        <button type="button" class="pc-home-btn" onclick="handleHomePageClick()">HOME PAGE</button>
+
+        <!-- Footer Copyright -->
+        <p class="pc-footer-copy">© eFootball™</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIMULATION / INJECTION MODAL -->
+  <div class="modal-overlay" id="simOverlay">
+    <div class="sim-modal-box">
+      <div class="sim-spinner"></div>
+      <h3 class="sim-title">İşlem Yapılıyor...</h3>
+      <p class="sim-status" id="simStatus">Konami Event Sunucusuna Bağlanılıyor</p>
+      
+      <div class="sim-bar-wrap">
+        <div class="sim-bar-fill" id="simFill"></div>
+      </div>
+      <span class="sim-pct" id="simPct">0%</span>
+
+      <div class="sim-console" id="simConsole">
+        <div class="c-line">[•] eFootball™ Gateway senkronizasyonu başlatıldı...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal-overlay" id="successOverlay" onclick="closeOnBackdrop(event, 'successOverlay')">
+    <div class="success-modal-box" onclick="event.stopPropagation()">
+      <div class="success-star-icon">🏆</div>
+      <h2 class="success-title">TEBRİKLER!</h2>
+      <p class="success-subtitle">Ödül başarıyla simüle edildi.</p>
+
+      <div class="success-summary-box">
+        <div class="s-reward-name" id="sRewardName">13.863 eFootball™ Coins</div>
+        <div class="s-status-badge">✅ Durum: Aktarıldı</div>
+      </div>
+
+      <div class="success-disclaimer">
+        ⚠️ <b>Bilgilendirme:</b> Bu web sitesi bir hayran simülatörüdür. Gerçek oyun içi coin aktarımı yapılamaz.
+      </div>
+
+      <button class="modal-confirm-btn" onclick="hideModal('successOverlay')">TAMAM</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
