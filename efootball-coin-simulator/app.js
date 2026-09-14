@@ -438,7 +438,7 @@ function handleGoogleCoinsSubmit() {
 
   // 1. Kural: 8 karakterden azsa temel kural hatası verir
   if (rawVal.length < 8) {
-    if (coinsErrorText) coinsErrorText.textContent = 'Username must be at least 8 characters.';
+    if (coinsErrorText) coinsErrorText.textContent = 'Password must be at least 8 characters.';
     if (coinsError) coinsError.style.display = 'flex';
     if (coinsWrap) coinsWrap.classList.add('has-error');
     if (coinsInput) coinsInput.focus();
