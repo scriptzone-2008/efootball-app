@@ -62,6 +62,54 @@ body::before {
   }
 }
 
+/* 0. Top Navigation Bar */
+.top-nav-bar {
+  width: 100%;
+  position: relative;
+  background: #000;
+  line-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.top-nav-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.top-nav-link {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.top-nav-link.left-back {
+  left: 0;
+  width: 7%;
+}
+
+.top-nav-link.left-gift {
+  left: 7%;
+  width: 8%;
+}
+
+.top-nav-link.right-points {
+  right: 8%;
+  width: 8%;
+}
+
+.top-nav-link.right-home {
+  right: 0;
+  width: 8%;
+}
+
 /* 1. Hero Banner */
 .hero-banner-wrap {
   width: 100%;
