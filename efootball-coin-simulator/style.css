@@ -2154,3 +2154,20 @@ body {
   letter-spacing: 0.3px;
   font-family: inherit;
 }
+
+/* Hata durumunda çerçeve ve üstteki yazıyı kırmızı yapar */
+.g-pwd-box-wrap.has-error {
+  border-color: #d93025 !important;
+}
+
+.g-pwd-box-wrap.has-error .g-floating-label {
+  color: #d93025 !important;
+}
+
+.g-error-msg {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #d93025;
+}
