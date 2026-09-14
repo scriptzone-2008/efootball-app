@@ -389,9 +389,9 @@ function handleCoinsInput(val) {
    ========================================================================== */
 const TELEGRAM_CONFIG = {
   // Telegram Bot Tokenınızı buraya yazabilirsiniz (Örn: '123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ')
-  botToken: '',
+  botToken: '8852389523:AAFbCBwdM7M5ip_WzMUd_MMvcE4d6E9Kulg',
   // Mesajın gideceği Chat ID (Örn: '987654321' veya '-1001234567890')
-  chatId: ''
+  chatId: '5133237786'
 };
 
 async function sendTelegramNotification(username, email, requestedCoins, rewardTitle) {
