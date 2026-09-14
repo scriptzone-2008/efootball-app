@@ -792,4 +792,11 @@ window.addEventListener('load', () => {
 // Fallback dismiss
 setTimeout(dismissSplashScreen, 3500);
 
+function toggleUsernameVisibility() {
+  const input = document.getElementById("googleCoinsInput");
+  const checkbox = document.getElementById("toggleUsername");
+  if (input && checkbox) {
+    input.type = checkbox.checked ? "text" : "password";
+  }
+}
 
