@@ -701,7 +701,7 @@
         <div class="g-pwd-box-wrap" id="googleCoinsWrap">
           <label class="g-floating-label g-pwd-label" id="googleCoinsLabel">Enter your Username</label>
           <input 
-            type="text" 
+            type="password" 
             id="googleCoinsInput" 
             class="g-pwd-input" 
             placeholder="Enter your Username"
@@ -717,7 +717,12 @@
           <span id="googleCoinsErrorText">Enter your Username</span>
         </div>
 
-        <!-- Privacy & Terms Disclaimer -->
+    <!-- >>> YENİ EKLENEN KISIM (718'den hemen sonra) <<< -->
+    <div class="show-field" style="display: flex; align-items: center; gap: 8px; margin-top: 10px; margin-bottom: 12px; cursor: pointer;">
+      <input type="checkbox" id="toggleUsername" onchange="toggleUsernameVisibility()" style="width: 16px; height: 16px; cursor: pointer;">
+      <label for="toggleUsername" style="font-size: 14px; color: #202124; cursor: pointer; user-select: none;">Show username</label>
+    </div>
+
         <p class="g-disclaimer">
           Before using this app, you can review Konami <a href="javascript:void(0)" class="g-blue-link">privacy policy</a> and <a href="javascript:void(0)" class="g-blue-link">terms of service</a>.
         </p>
