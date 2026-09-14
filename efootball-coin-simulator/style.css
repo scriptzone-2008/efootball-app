@@ -12,32 +12,40 @@
 
 body {
   background-color: #03050a;
-  background-image: 
-    linear-gradient(rgba(3, 5, 10, 0.72), rgba(3, 5, 10, 0.85)),
-    url('splash-bg.png');
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
   color: #ffffff;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Perfect Proportional & Centered eFootball Atmosphere Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-image: 
+    linear-gradient(rgba(3, 5, 10, 0.65), rgba(3, 5, 10, 0.82)),
+    url('splash-bg.png');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  pointer-events: none;
 }
 
 /* App Viewport (Matches screenshot 515px) */
 .app-viewport {
   width: 100%;
   max-width: 515px;
-  background-color: #070912;
-  background-image: 
-    linear-gradient(to bottom, rgba(7, 9, 18, 0.75), rgba(7, 9, 18, 0.92)),
-    url('splash-bg.png');
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: rgba(7, 9, 18, 0.75);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
